@@ -1,3 +1,4 @@
+<a href="/mainan/tambah">Tambah Data</a>
 <table border="1">
     <tr>
         <th>id</th>

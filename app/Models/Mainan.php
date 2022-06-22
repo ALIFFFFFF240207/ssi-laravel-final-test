@@ -9,4 +9,5 @@ class Mainan extends Model
 {
     use HasFactory;
     protected $table = 'mainan';
+    protected $guarded = [];
 }

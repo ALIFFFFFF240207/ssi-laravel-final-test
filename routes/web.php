@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/mainan', [mainanController::class, 'index']);
+Route::get('/mainan/tambah', [mainanController::class, 'tambah']);
+Route::post('/mainan/store', [mainanController::class, 'store']);
