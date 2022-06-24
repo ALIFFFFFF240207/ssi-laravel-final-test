@@ -23,4 +23,17 @@ class mainanController extends Controller
         Mainan::create($request->except(['_token', 'submit']));
         return redirect('/mainan');
     }
+
+    public function edit($id)
+    {
+        $mainan = Mainan::find($id);
+        return view('mainan.edit', compact(['mainan']));
+    }
+
+    public function update($id, request $request)
+    {
+        $mainan = Mainan::find($id);
+        $mainan->update($request->except(['_token', 'submit']));
+        return redirect('/mainan');
+    }
 }
