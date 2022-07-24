@@ -14,7 +14,7 @@ use App\Http\Controllers\mainanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/mainan', [mainanController::class, 'index']);
@@ -22,3 +22,4 @@ Route::get('/mainan/tambah', [mainanController::class, 'tambah']);
 Route::post('/mainan/store', [mainanController::class, 'store']);
 Route::get('/mainan/{id}/edit', [mainanController::class, 'edit']);
 Route::put('/mainan/{id}', [mainanController::class, 'update']);
+Route::delete('/mainan/{id}', [mainanController::class, 'destroy']);

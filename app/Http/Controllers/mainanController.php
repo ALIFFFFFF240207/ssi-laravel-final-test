@@ -36,4 +36,16 @@ class mainanController extends Controller
         $mainan->update($request->except(['_token', 'submit']));
         return redirect('/mainan');
     }
+
+    public function destroy($id)
+    {
+        $mainan = Mainan::find($id);
+        $mainan->delete();
+        return redirect('/mainan');
+    }
+
+    public function cancel()
+    {
+        return redirect('/mainan');
+    }
 }
