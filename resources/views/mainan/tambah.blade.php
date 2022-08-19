@@ -1,9 +1,10 @@
 @extends('layouts.master')
+@section('title', "Halaman Tambah Barang")
 @section('content')
 
 <div class="container">
-    <h1 class="text-center my-4">Tambah Data Mainan</h1>
     <form action="/mainan/store" method="POST">
+        <br>
         @csrf
         <div class="mb-3">
             <label for="nama" class="form-label">Nama Mainan</label>

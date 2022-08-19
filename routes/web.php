@@ -23,3 +23,7 @@ Route::post('/mainan/store', [mainanController::class, 'store']);
 Route::get('/mainan/{id}/edit', [mainanController::class, 'edit']);
 Route::put('/mainan/{id}', [mainanController::class, 'update']);
 Route::delete('/mainan/{id}', [mainanController::class, 'destroy']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

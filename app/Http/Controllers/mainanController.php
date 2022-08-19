@@ -4,13 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\Mainan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class mainanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $mainan = Mainan::all();
-        return view('mainan.index', compact(['mainan']));
+        $cari = $request->query('cari');
+
+        if (!empty($cari)) {
+            $data = DB::table('mainan')
+                ->where('nama_mainan', 'like', '%' . $cari . '%')
+                ->orWhere('deskripsi_mainan', 'like', '%' . $cari . '%')
+                ->paginate(10);
+        } else {
+            $data = DB::table('mainan')
+                ->paginate(10);
+        }
+
+        return view('mainan.index')->with([
+            'mainan' => $data,
+            'cari' => $cari
+        ]);
     }
 
     public function tambah()
